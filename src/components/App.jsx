@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { AddContactForm } from "./AddContactForm/AddContactForm";
 import { Container } from "@mui/material";
-import { nanoid } from "nanoid";
+
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
 

@@ -18,4 +18,3 @@ export const Filter = ({handleChangeFilter}) => {
         </FilterForm>
     )
 };
-export default Filter;
