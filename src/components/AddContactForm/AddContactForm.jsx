@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
-
+import { PropTypes } from 'prop-types';
 import { Component } from "react";
 import { nanoid } from "nanoid";
 
@@ -85,3 +85,7 @@ export class AddContactForm extends Component {
         }
 };
 
+AddContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+export default AddContactForm;

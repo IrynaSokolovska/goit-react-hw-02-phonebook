@@ -1,9 +1,19 @@
 import { Component } from "react";
 import { AddContactForm } from "./AddContactForm/AddContactForm";
 import { Container } from "@mui/material";
-
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
+import styled from "@emotion/styled";
+
+const Title = styled.h1`
+/* font-size:18px;
+font-weight: 500; */
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 10px;
+width: 400px;
+`;
 
 export class App extends Component  {
   state = {
@@ -16,11 +26,11 @@ export class App extends Component  {
   filter: ''
   }
   
-  addContact = (newContact) => {
+  addContact = (newContact) => {    
     const normalizedNewContact = newContact;
     if (
       this.state.contacts.find(
-        contact => newContact.name.toLowerCase() === normalizedNewContact
+        newContact => newContact.name.toLowerCase() === normalizedNewContact.name
       )
     ) {
       return alert(`${newContact.name} is already in contacts!`);
@@ -50,8 +60,10 @@ export class App extends Component  {
   render(){
   return (
     <Container maxWidth="xl">
+      <Title>Phonebook</Title>
       <AddContactForm addNewContact={this.addContact} />
-      <Filter handleChangeFilter={this.handleChangeFilter} />
+      <Title>Contacts</Title>
+      <Filter handleChangeFilter={this.handleChangeFilter} />      
       <ContactList contacts={this.getFilterContacts()} onDeleteContact={this.handleDeleteContact} />    
     </Container>
     );
@@ -60,19 +72,4 @@ export class App extends Component  {
 
 export default App;
 
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
+

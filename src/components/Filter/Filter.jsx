@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { TextField } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const FilterForm = styled.div`
 margin: 0 auto;
@@ -18,3 +19,8 @@ export const Filter = ({handleChangeFilter}) => {
         </FilterForm>
     )
 };
+
+FilterForm.propTypes = {
+  handleChangeFilter: PropTypes.func.isRequired,
+};
+export default FilterForm;
